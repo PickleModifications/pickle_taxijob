@@ -30,6 +30,10 @@ function CanAccessGroup(data)
 end 
 
 function AccessBossMenu(businessID)
+    local cfg = Config.Businesses[businessID]
+    if not CanAccessGroup(cfg.bossgroups) then 
+        return ShowNotification(_L("no_access"))
+    end
     TriggerEvent('qb-bossmenu:client:OpenMenu')
 end
 
