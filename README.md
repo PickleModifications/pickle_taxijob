@@ -35,8 +35,9 @@ Use a supported framework or make it work with yours via the bridge folder.
 ## Installation
 
 <p>Start ox_lib before pickle_taxijob.</p>
-<p>Add your businesses in the config.lua.</p>>
+<p>Add your businesses in the config.lua.</p>
 <p>Add the groups via the SQL files (use included examples in the "_INSTALL" folder).</p>
+<p>Restart the server.</p>
 
 ## Need Support?
 
