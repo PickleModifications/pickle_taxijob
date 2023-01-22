@@ -127,21 +127,25 @@ function StartMission(lastIndex)
         end
 
         ServerCallback("pickle_taxijob:npcMissionComplete", function(result)
-            if result then
-                local ped = mission.ped
-                TaskWanderStandard(ped, 1, 1)
-                SetTimeout(5000, function()
-                    DeleteEntity(ped)
-                end)
-            else
+            if not result then
                 ShowNotification(_L("mission_fail"))
             end
-            if cfg.loop then 
-                StartMission(mission.to)
-            else
-                mission = nil
-            end
         end, mission.from, mission.to)
+
+        -- for ped animatation to walk away from taxi
+        local ped = mission.ped
+        TaskWanderStandard(ped, 1, 1)
+        SetTimeout(5000, function()
+            DeleteEntity(ped)
+        end)
+        
+        -- start a new mission or not
+        if cfg.loop then 
+            StartMission(mission.to)
+        else
+            mission = nil
+        end
+
     elseif (mission) then
         for i=-1, 4 do 
             SetVehicleDoorShut(mission.taxi, i, false)
