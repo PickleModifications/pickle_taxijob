@@ -11,6 +11,9 @@ function RegisterUsableItem(...)
 end
 
 function ShowNotification(target, text)
+	if Config.UseOxNotify == true then
+	TriggerClientEvent('ox_lib:notify', target, {description = text})
+	else
 	TriggerClientEvent(GetCurrentResourceName()..":showNotification", target, text)
 end
 

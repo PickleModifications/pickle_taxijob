@@ -7,6 +7,11 @@ function ServerCallback(name, cb, ...)
 end
 
 function ShowNotification(text)
+    if Config.UseOxNotify == true then 
+        lib.notify({
+            description = text
+        })
+    else
 	QBCore.Functions.Notify(text)
 end
 

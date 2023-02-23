@@ -3,7 +3,7 @@ Config = {}
 Config.Debug = true
 
 Config.Language = "en"
-
+Config.UseOxNotify = false
 Config.Businesses = {
     {
         info = { 
