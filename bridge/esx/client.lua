@@ -3,7 +3,13 @@ if GetResourceState('es_extended') ~= 'started' then return end
 ESX = exports.es_extended:getSharedObject()
 
 function ShowNotification(text)
+ 	if Config.UseOxNotify == true then 
+        lib.notify({
+            description = text
+        })
+    else
 	ESX.ShowNotification(text)
+    end
 end
 
 function ShowHelpNotification(text)
